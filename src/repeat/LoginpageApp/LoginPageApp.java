@@ -1,4 +1,4 @@
-package nt.loginPage;
+package repeat.LoginpageApp;
 
 import java.util.Scanner;
 
@@ -35,40 +35,32 @@ public class LoginPageApp {
     public static void start(){
         Scanner inp=new Scanner(System.in);
         UserService service=new UserService();
+//1-kullanıcıya işlem menüsü gösterelim.
         int select;
         do {
-            showMenu();
-            select=inp.nextInt();
+            System.out.println("=== TECHPROEDUCATION ===");
+            System.out.println("1-üye ol");
+            System.out.println("2-giriş yap");
+            System.out.println("0-ÇIKIŞ");
+            select= inp.nextInt();
             switch (select){
                 case 1:
+                    //register
                     service.register();
-                    System.out.println(service.usernames);
-                    System.out.println(service.emails);
-                    System.out.println(service.passwords);
+                    System.out.println(service.userList);
                     break;
                 case 2:
+                    //login
                     service.login();
                     break;
                 case 0:
                     System.out.println("İyi günler dileriz...");
                     break;
                 default:
-                    System.out.println("Hatalı giriş yaptınız, tekrar deneyiniz...");
+                    System.out.println("Hatalı giriş yaptınız, tekrar deneyiniz!");
                     break;
             }
-
-        }while(select!=0);
-
-
+        }while (select!=0);
+//2-tüm userların ortak özellikleri olacak, user classı oluşturalım.
     }
-
-    public static void showMenu() {
-        System.out.println("===TECHPROEDUCATION===");
-        System.out.println("1-üye ol");
-        System.out.println("2-giriş yap");
-        System.out.println("0-ÇIKIŞ");
-        System.out.println("Seçiminiz: ");
-    }
-
-
 }
